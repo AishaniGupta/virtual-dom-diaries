@@ -112,7 +112,7 @@
 
 ### Concepts Covered:
 
-* `React.createElement(type, props, children)`:
+* `React.createElement(type, props(attribute), children(normal react element, can add array for multiple children ))`:
 
   * Creates a virtual DOM element.
 * `ReactDOM.createRoot(...).render(...)`:
@@ -193,7 +193,7 @@ const heading = <h1>Hello from JSX</h1>;
 
 ## 9. React: Library vs Framework
 
-### React is a **Library**, not a Framework
+### React is a **Library** can be injected using cdn into small portions of the code/page, not a Framework
 
 | Feature           | React (Library)      | Framework (e.g., Angular)  |
 | ----------------- | -------------------- | -------------------------- |
