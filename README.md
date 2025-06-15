@@ -1,1 +1,23 @@
 # virtual-dom-diaries
+
+# Dev build -> npx parcel Index.html
+# Prod build -> npx parcel build Index.html
+
+# Parcel
+- Dev Build
+- Local Server
+- HMR = Hot Module Replacement 
+- Parcel uses File watching algo written in c++
+- Faster builds - because of caching - in parcel-cache folder
+- Image optimization
+- Minification
+- Bundling
+- Compress
+- Consistent Hashing -> Read more
+- Code spliting
+- Differential bundling - Support for older browsers
+- Diagonastic behind the scenes
+- Error handling
+- HTTPs hoisting
+- Tree shaking - remove unused code
+- Different dev and prod bundles

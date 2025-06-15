@@ -28,7 +28,7 @@
 
 ## npm & Project Initialization
 
-* **npm (Node Package Manager)** is the default package manager for Node.js and is used to install and manage dependencies.
+* **npm** is the default package manager for Node.js and is used to install and manage dependencies.
 * Initialize project:
 
   ```bash
