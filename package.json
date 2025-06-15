@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Namste react by Aishani Gupta",
   "scripts": {
+    "start:dev":"parcel Index.html",
+    "start:prod": "parcel build Index.html",
     "test": "jest"
   },
   "keywords": [],

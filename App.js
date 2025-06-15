@@ -1,33 +1,56 @@
-{/* <div id="parent">
-    <div id="chid1">
-        <h1></h1>
-        <h2></h2>
-    </div>
-    <div id="child2">
-        <h1></h1>
-        <h2></h2>
-    </div>
-</div> */}
-
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-const parent = React.createElement("div", {id:"parent"},[
-    React.createElement("div", {id:"chidren"},[
-        React.createElement("h1", {}, "I am an h1 tag from child1"),
-        React.createElement("h2", {}, "I am an h2 tag from child1") 
-    ]),
-    React.createElement("div", {id:"chidren"},[
-        React.createElement("h1", {}, "I am an h1 tag from child2"),
-        React.createElement("h2", {}, "I am an h2 tag from child2") 
-    ])
-])
-//Can have parent,child and siblings(create array)
+//this code is transpiled before it reached JS engine by Parcel (by the help of babel)
+// JSX -> transpiled (by babel) -> React.createElement -> JS object -> Rendered as HTML element
 
-const heading = React.createElement("h1", {id: "heading"}, "Hello World from React!")
-const root1 = ReactDOM.createRoot(document.getElementById("root1"))
-const root2 = ReactDOM.createRoot(document.getElementById("root2"))
-root1.render(heading) //render method -> coverting object into the tag
-root2.render(parent)
+//React Element
 
-console.log(heading) // -> returns object
+const element = <h6>Testing</h6>
+const heading = <h1 id="root">Namaste React from react element {element}</h1>
+
+//Functional component
+
+const HeadingComponent1 = () => {
+    return (
+        <div>
+            <h1>Namaste React from functional component </h1>
+            <HeadingComponent2 />
+            <HeadingComponent3></HeadingComponent3>
+            {HeadingComponent4()}
+        </div>
+    )
+}
+const HeadingComponent2 = () => <h1>Same thing</h1>
+
+const HeadingComponent3 = () => (
+    <h1>Same thing again</h1>
+)
+
+const HeadingComponent4 = function() {
+    return(
+        <h1>Without arrow functions with function keywords</h1>
+    )
+}
+
+const number = 1000
+const HeadingComponent5 = () => {
+    return (
+        <div>
+            {number}
+            <h1> Hello here {number}</h1>
+            {10000+123-987979}
+            {console.log("Testing console")}
+            {heading}
+        </div>
+    )
+}
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
+
+//Rendering for react element
+root.render(heading)
+
+//Rendering for react component
+root.render(<HeadingComponent1 />)
