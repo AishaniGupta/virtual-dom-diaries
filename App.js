@@ -1,56 +1,102 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-//this code is transpiled before it reached JS engine by Parcel (by the help of babel)
-// JSX -> transpiled (by babel) -> React.createElement -> JS object -> Rendered as HTML element
+/**
+ * Header
+ * - Logo
+ * - Nav Items
+ * Body
+ * - Search
+ * - Restaurant Container
+ * -- Restaurant Card
+ * --- Img
+ * --- Name, Star Rating, cuisine
+ * Footer
+ * - Copyright
+ * - Links
+ * - Address
+ * - Contact
+ */
 
-//React Element
-
-const element = <h6>Testing</h6>
-const heading = <h1 id="root">Namaste React from react element {element}</h1>
-
-//Functional component
-
-const HeadingComponent1 = () => {
+const Header = () => {
     return (
-        <div>
-            <h1>Namaste React from functional component </h1>
-            <HeadingComponent2 />
-            <HeadingComponent3></HeadingComponent3>
-            {HeadingComponent4()}
+        <div className = "header">
+            <div className="logo-container"> 
+                <img className="logo" src="https://images-platform.99static.com/A_Ax0GQuo_NHI0Y7XZHmFtGfBDY=/0x0:1000x1000/500x500/top/smart/99designs-contests-attachments/126/126252/attachment_126252018" />
+            </div>
+            <div className="nav-items">
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Cart</li>
+                </ul>
+            </div>
         </div>
     )
 }
-const HeadingComponent2 = () => <h1>Same thing</h1>
+// const styleCard = {
+//     backgroundColor: red,
+// }
+const RestaurantCard = (props) => {
+    const {resData} = props 
 
-const HeadingComponent3 = () => (
-    <h1>Same thing again</h1>
-)
-
-const HeadingComponent4 = function() {
-    return(
-        <h1>Without arrow functions with function keywords</h1>
-    )
-}
-
-const number = 1000
-const HeadingComponent5 = () => {
     return (
-        <div>
-            {number}
-            <h1> Hello here {number}</h1>
-            {10000+123-987979}
-            {console.log("Testing console")}
-            {heading}
+        <div className="res-card">
+            <img className="res-logo" alt="res-logo" src={resData.imgSource} />
+            <h3>{resData.resName}</h3>
+            <h4>{resData.cuisine.join(" , ")}</h4>
+            <h4>{resData.stars} stars</h4>
+            <h4>{resData.deliveryTime} mins</h4>
+            <h4>Rs {resData.costForTwo/100} for two</h4>
         </div>
     )
 }
 
+const resList = [{
+    "resName":"Dominos",
+    "imgSource":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5s9iRJd6qbAblgaIm2z0Nh0bTPnNYUJEkVg&s",
+    "cuisine":["Italian", "fast food"],
+    "stars":"3.8",
+    "deliveryTime":"28",
+    "costForTwo":40000
+},
+{
+    "resName":"KFC",
+    "imgSource":"https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png",
+    "cuisine":["burger", "chicken", "fast food"],
+    "stars":"3.6",
+    "deliveryTime":"25",
+    "costForTwo":35000
+}
+]
+
+const Body = () => {
+    return (
+        <div className="body">
+            <div className="search">Search</div>
+            <div className="res-container">
+                <RestaurantCard
+                resData={resList[0]}
+                // imgSource="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5s9iRJd6qbAblgaIm2z0Nh0bTPnNYUJEkVg&s"
+                // resName="Dominos" 
+                // cuisine="Italian, fast food"
+                // stars="3.8"
+                // deliveryTime="28 min"
+                />
+                <RestaurantCard resData={resList[1]} />
+            </div>
+        </div>
+    )
+}
+const AppLayout = () => {
+    return (
+        <div className="app">
+            <Header />
+            <Body />
+        </div>
+    )
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-
-//Rendering for react element
-root.render(heading)
-
-//Rendering for react component
-root.render(<HeadingComponent1 />)
+root.render(<AppLayout />)
