@@ -88,6 +88,14 @@ const Body = () => {
         <div className="body">
             <div className="search">Search</div>
             <div className="res-container">
+                {/* <RestaurantCard
+                resData={resList[0]}
+                imgSource="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5s9iRJd6qbAblgaIm2z0Nh0bTPnNYUJEkVg&s"
+                resName="Dominos" 
+                cuisine="Italian, fast food"
+                stars="3.8"
+                deliveryTime="28 min"
+                /> */}
                 {resList.map(restaurant => 
                     <RestaurantCard key={resList.resID} resData={restaurant} />
                 )}
