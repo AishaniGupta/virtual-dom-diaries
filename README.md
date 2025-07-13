@@ -3,6 +3,25 @@
 # Dev build -> npx parcel Index.html
 # Prod build -> npx parcel build Index.html
 
+# Food-ordering app
+
+/**
+ * Header
+ * - Logo
+ * - Nav Items
+ * Body
+ * - Search
+ * - Restaurant Container
+ * -- Restaurant Card
+ * --- Img
+ * --- Name, Star Rating, cuisine
+ * Footer
+ * - Copyright
+ * - Links
+ * - Address
+ * - Contact
+ */
+
 # Parcel
 - Dev Build
 - Local Server
