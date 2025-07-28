@@ -1,13 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import RestaurantCard from "./RestaurantCard"
 import resList from "../utils/mockData"
+import data from "../utils/swiggy-api.json"
 
 const Body = () => {
 
     // Local State Variable - super powerful variable
     const [listOfRestaurants, setListOfRestaurants] = useState(resList)
+    // const [listOfRestaurants, setListOfRestaurants] = useState(data?.data?.cards[2]?.data?.data?.cards)
 
-    //Normal JS Variable
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const fetchData = async () => {
+        const data = await fetch("https://my-json-server.typicode.com/AishaniGupta/fake-api/db")
+        const json = await data.json()
+
+        setListOfRestaurants(json?.cards)
+    }
+
+    // Normal JS Variable
     // let listOfRestaurants = [{
     //     "resID": 1,
     //     "resName":"Dominos",
@@ -17,6 +30,12 @@ const Body = () => {
     //     "deliveryTime":"28",
     //     "costForTwo":40000
     // }]
+
+    if(listOfRestaurants.length === 0) {
+        return (
+            <h1>Loading......</h1>
+        )
+    }
 
     return (
         <div className="body">
